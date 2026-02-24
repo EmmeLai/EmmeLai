@@ -1,29 +1,17 @@
-## Hi there 👋
+## Unsupervised Classification of Radar Echoes
+This repository presents the Week 4 AI for Earth Observation. The task is to classify radar waveform echoes into sea ice and lead classes using an unsupervised learning approach, compute the average echo shape and waveform variability for each class, and evaluate the classification against ESA official labels using a confusion matrix.
+The work builds on the provided notebook Unit_2_Unsupervised_Learning_ipynb, specifically within the Altimetry Classification section.
 
-# Echo Classification using Unsupervised Learning
+## 1. Echo Classification Using K-Means
+Echo classification was performed using K-Means clustering with two clusters. The implementation is located in the section “Scatter Plots of Clustered Data” under Altimetry Classification.
+The clustering code is:
 
-In this notebook, we classify radar echoes into:
-- Leads
-- Sea Ice
+```
+from sklearn.cluster import KMeans
 
-We use KMeans clustering (unsupervised learning) to group echoes
-based on waveform shape.
+kmeans = KMeans(n_clusters=2, random_state=0)
+kmeans.fit(X)
 
-We then:
-- Compute the average echo shape for each class
-- Compute standard deviation
-- Compare results with ESA official classification using a confusion matrix
-<!--
-**EmmeLai/EmmeLai** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+labels = kmeans.labels_
+```
+The clustering results are visualised using three feature-space scatter plots generated in this section.
